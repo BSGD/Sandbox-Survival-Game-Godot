@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cy03rjqo02g4o"]
+
+[ext_resource type="Script" uid="uid://cxomr1uawtlr2" path="res://Entities/Items/item.gd" id="1_onl41"]
+[ext_resource type="PackedScene" uid="uid://hwruuucxinw0" path="res://Assets/Resources/Silver_Bar.fbx" id="2_onl41"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(0.4, 0.2, 0.8)
+
+[node name="Silver" type="RigidBody3D" unique_id=861464501]
+script = ExtResource("1_onl41")
+item_name = "Silver"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009355991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_ai5bk")
+
+[node name="Silver_Bar" parent="." unique_id=1943478961 instance=ExtResource("2_onl41")]

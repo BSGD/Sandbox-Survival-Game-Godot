@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dj8xi77n8vlu1"]
+
+[ext_resource type="Script" uid="uid://bkofgdjcvaw8r" path="res://Entities/Static/tree.gd" id="1_tree"]
+[ext_resource type="PackedScene" uid="uid://do7frrkle3bb4" path="res://Entities/Items/Resources/log.tscn" id="2_0igvp"]
+[ext_resource type="PackedScene" uid="uid://deusdr5r8i2xo" path="res://Assets/Environment/Tree_3_C_Color1.fbx" id="2_501v8"]
+[ext_resource type="Script" uid="uid://b81n01g1ldnkj" path="res://Entities/Static/tree_data.gd" id="3_0igvp"]
+
+[sub_resource type="Resource" id="Resource_6spvl"]
+script = ExtResource("3_0igvp")
+mesh_scene = ExtResource("2_501v8")
+log_scene = ExtResource("2_0igvp")
+metadata/_custom_type_script = "uid://b81n01g1ldnkj"
+
+[node name="ChoppableTree" type="StaticBody3D" unique_id=1445141412]
+script = ExtResource("1_tree")
+tree_data = SubResource("Resource_6spvl")
+
+[node name="MeshRoot" type="Node3D" parent="." unique_id=99030073]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1423221956]

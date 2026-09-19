@@ -1,0 +1,77 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bf25ky8q3v8uc"]
+
+[ext_resource type="FontFile" uid="uid://bim63st4ahnje" path="res://System/Styling/aquire-font/Aquire-BW0ox.otf" id="1_tuk4m"]
+[ext_resource type="StyleBox" uid="uid://c0r3hvxhrwgx6" path="res://System/Styling/MainStyleBoxes/Disabled.tres" id="2_ljvgt"]
+[ext_resource type="StyleBox" uid="uid://chcefjbetkywk" path="res://System/Styling/MainStyleBoxes/Focus.tres" id="3_yyakf"]
+[ext_resource type="StyleBox" uid="uid://dkv8onvr8ndv4" path="res://System/Styling/MainStyleBoxes/Hover.tres" id="4_767th"]
+[ext_resource type="StyleBox" uid="uid://h135ghkq3dew" path="res://System/Styling/MainStyleBoxes/Background.tres" id="5_ohc87"]
+[ext_resource type="StyleBox" uid="uid://dnhc2ie4l21vu" path="res://System/Styling/MainStyleBoxes/Pressed.tres" id="6_x2gdp"]
+[ext_resource type="StyleBox" uid="uid://djwwhonxe812d" path="res://System/Styling/MainStyleBoxes/SliderPressed.tres" id="7_6anvi"]
+[ext_resource type="StyleBox" uid="uid://m7kpxu2j2peq" path="res://System/Styling/MainStyleBoxes/SliderHover.tres" id="8_k628j"]
+[ext_resource type="StyleBox" uid="uid://fp4xqbphjq8g" path="res://System/Styling/MainStyleBoxes/SliderBackground.tres" id="9_fcnbs"]
+[ext_resource type="FontFile" uid="uid://btp0todmvehvo" path="res://System/Styling/aquire-font/AquireBold-8Ma60.otf" id="9_nu42k"]
+
+[resource]
+Button/fonts/font = ExtResource("1_tuk4m")
+Button/styles/disabled = ExtResource("2_ljvgt")
+Button/styles/focus = ExtResource("3_yyakf")
+Button/styles/hover = ExtResource("4_767th")
+Button/styles/normal = ExtResource("5_ohc87")
+Button/styles/pressed = ExtResource("6_x2gdp")
+CheckBox/styles/disabled = ExtResource("2_ljvgt")
+CheckBox/styles/focus = ExtResource("3_yyakf")
+CheckBox/styles/hover = ExtResource("4_767th")
+CheckBox/styles/hover_pressed = ExtResource("6_x2gdp")
+CheckBox/styles/normal = ExtResource("5_ohc87")
+CheckBox/styles/pressed = ExtResource("6_x2gdp")
+HScrollBar/styles/grabber = ExtResource("7_6anvi")
+HScrollBar/styles/grabber_highlight = ExtResource("7_6anvi")
+HScrollBar/styles/grabber_pressed = ExtResource("8_k628j")
+HScrollBar/styles/scroll = ExtResource("9_fcnbs")
+HSlider/styles/grabber_area = ExtResource("7_6anvi")
+HSlider/styles/grabber_area_highlight = ExtResource("4_767th")
+HSlider/styles/slider = ExtResource("9_fcnbs")
+Label/fonts/font = ExtResource("1_tuk4m")
+Label/styles/normal = ExtResource("5_ohc87")
+LineEdit/fonts/font = ExtResource("1_tuk4m")
+LineEdit/styles/focus = ExtResource("3_yyakf")
+LineEdit/styles/normal = ExtResource("5_ohc87")
+LineEdit/styles/read_only = ExtResource("2_ljvgt")
+MenuButton/styles/disabled = ExtResource("2_ljvgt")
+MenuButton/styles/focus = ExtResource("3_yyakf")
+MenuButton/styles/hover = ExtResource("4_767th")
+MenuButton/styles/normal = ExtResource("5_ohc87")
+MenuButton/styles/pressed = ExtResource("6_x2gdp")
+ProgressBar/fonts/font = ExtResource("1_tuk4m")
+ProgressBar/styles/background = ExtResource("5_ohc87")
+ProgressBar/styles/fill = ExtResource("4_767th")
+TabContainer/fonts/font = ExtResource("1_tuk4m")
+TabContainer/styles/panel = ExtResource("5_ohc87")
+TabContainer/styles/tab_disabled = ExtResource("2_ljvgt")
+TabContainer/styles/tab_focus = ExtResource("3_yyakf")
+TabContainer/styles/tab_hovered = ExtResource("4_767th")
+TabContainer/styles/tab_selected = ExtResource("6_x2gdp")
+TabContainer/styles/tab_unselected = ExtResource("5_ohc87")
+TextEdit/fonts/font = ExtResource("1_tuk4m")
+TextEdit/styles/focus = ExtResource("3_yyakf")
+TextEdit/styles/normal = ExtResource("5_ohc87")
+TextEdit/styles/read_only = ExtResource("2_ljvgt")
+Tree/fonts/font = ExtResource("1_tuk4m")
+Tree/fonts/title_button_font = ExtResource("9_nu42k")
+Tree/styles/button_pressed = ExtResource("6_x2gdp")
+Tree/styles/custom_button = ExtResource("5_ohc87")
+Tree/styles/custom_button_pressed = ExtResource("6_x2gdp")
+Tree/styles/focus = ExtResource("3_yyakf")
+Tree/styles/panel = ExtResource("5_ohc87")
+Tree/styles/selected = ExtResource("6_x2gdp")
+Tree/styles/selected_focus = ExtResource("6_x2gdp")
+Tree/styles/title_button_hover = ExtResource("4_767th")
+Tree/styles/title_button_normal = ExtResource("5_ohc87")
+Tree/styles/title_button_pressed = ExtResource("6_x2gdp")
+VScrollBar/styles/grabber = ExtResource("7_6anvi")
+VScrollBar/styles/grabber_highlight = ExtResource("7_6anvi")
+VScrollBar/styles/grabber_pressed = ExtResource("8_k628j")
+VScrollBar/styles/scroll = ExtResource("9_fcnbs")
+VSlider/styles/grabber_area = ExtResource("7_6anvi")
+VSlider/styles/grabber_area_highlight = ExtResource("8_k628j")
+VSlider/styles/slider = ExtResource("9_fcnbs")

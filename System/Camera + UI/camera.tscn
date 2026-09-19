@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxnhy737vinac"]
+
+[ext_resource type="Script" uid="uid://20d8piro07jx" path="res://System/Camera + UI/camera.gd" id="1_7um0j"]
+
+[node name="CamOrigin" type="Node3D"]
+script = ExtResource("1_7um0j")
+
+[node name="PitchPivot" type="Node3D" parent="."]
+
+[node name="CamArm" type="SpringArm3D" parent="PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.93396)
+
+[node name="Camera3D" type="Camera3D" parent="PitchPivot/CamArm"]
+
+[node name="Raycast" type="RayCast3D" parent="PitchPivot/CamArm"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -50, 0)
+
+[node name="FromCamera" type="RayCast3D" parent="PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -8, 0)

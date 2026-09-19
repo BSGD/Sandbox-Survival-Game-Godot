@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbb86161r06pu"]
+
+[ext_resource type="Texture2D" uid="uid://bokfpbk3trh2x" path="res://Assets/baseplate.png" id="1_60anv"]
+[ext_resource type="PackedScene" uid="uid://4lal0ebmn7xn" path="res://Scenes/player.tscn" id="2_nhfnx"]
+[ext_resource type="Script" path="res://Scenes/camera_3d.gd" id="3_a7pqf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_skr7w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihsxe"]
+albedo_texture = ExtResource("1_60anv")
+uv1_scale = Vector3(1000, 1000, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uv2fc"]
+lightmap_size_hint = Vector2i(50002, 50002)
+material = SubResource("StandardMaterial3D_ihsxe")
+size = Vector2(10000, 10000)
+
+[sub_resource type="Environment" id="Environment_lfuhf"]
+background_mode = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.53
+
+[node name="Game" type="Node3D"]
+
+[node name="Baseplate" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Baseplate"]
+shape = SubResource("WorldBoundaryShape3D_skr7w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Baseplate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509888, 1.3244, -0.0499573)
+mesh = SubResource("PlaneMesh_uv2fc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lfuhf")
+
+[node name="Player" parent="." instance=ExtResource("2_nhfnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.4192, 0)
+
+[node name="CamOrigin" type="Node3D" parent="Player"]
+script = ExtResource("3_a7pqf")
+
+[node name="h" type="Node3D" parent="Player/CamOrigin"]
+
+[node name="v" type="Node3D" parent="Player/CamOrigin/h"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/CamOrigin/h/v"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.93396)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CamOrigin/h/v/SpringArm3D"]

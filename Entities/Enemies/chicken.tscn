@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://lb6rl0brdibr"]
+
+[ext_resource type="Script" uid="uid://i5tex7yi4vdp" path="res://Entities/Enemies/enemy.gd" id="1_3f6lr"]
+[ext_resource type="PackedScene" uid="uid://bkrpox2j6wkqu" path="res://Assets/AndarGalinhaAndar.fbx" id="2_3f6lr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uexu"]
+size = Vector3(0.8, 1.4, 0.8)
+
+[node name="Chicken" type="CharacterBody3D" unique_id=258977593]
+script = ExtResource("1_3f6lr")
+attack_damage = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2022355864]
+shape = SubResource("BoxShape3D_6uexu")
+
+[node name="AndarGalinhaAndar" parent="." unique_id=762533413 instance=ExtResource("2_3f6lr")]
+transform = Transform3D(-20, 0, -3.019916e-06, 0, 20, 0, 3.019916e-06, 0, -20, 0, 0, 0)

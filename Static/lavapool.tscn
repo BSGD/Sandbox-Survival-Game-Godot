@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dl27ddwmvxnhr"]
+
+[ext_resource type="Script" uid="uid://qiprvvpc8xfk" path="res://System/damage.gd" id="1_mwyvk"]
+[ext_resource type="PackedScene" uid="uid://8brvce4kx5rh" path="res://Assets/Environment/Rock_3_B_Color1.fbx" id="2_qd1d8"]
+[ext_resource type="PackedScene" uid="uid://brhxvvwtv10w2" path="res://Assets/Environment/Rock_3_C_Color1.fbx" id="3_ghuu8"]
+[ext_resource type="PackedScene" uid="uid://cbajuo64r77ve" path="res://Assets/Environment/Rock_3_D_Color1.fbx" id="4_e5vxs"]
+[ext_resource type="PackedScene" uid="uid://dt3eno35a07ou" path="res://Assets/Environment/Rock_3_E_Color1.fbx" id="5_e1dl6"]
+[ext_resource type="PackedScene" uid="uid://dpa2ri8uvgfr1" path="res://Assets/Environment/Rock_3_F_Color1.fbx" id="6_ghuu8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14meb"]
+albedo_color = Color(0.9490196, 0.23921569, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w363r"]
+size = Vector3(5, 0.1, 5)
+
+[node name="damage" type="Area3D" unique_id=1953218144]
+script = ExtResource("1_mwyvk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1007010464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+size = Vector3(5, 0.1, 5)
+material = SubResource("StandardMaterial3D_14meb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=77866988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_w363r")
+
+[node name="Rock_3_B_Color1" parent="." unique_id=1002052438 instance=ExtResource("2_qd1d8")]
+transform = Transform3D(2.3941412, 0, 6.5778484, 0, 7, 0, -6.5778484, 0, 2.3941412, 1.0628753, 2.294838, -3.161418)
+
+[node name="Rock_3_C_Color1" parent="." unique_id=824474247 instance=ExtResource("3_ghuu8")]
+transform = Transform3D(0.66691124, 0, -7.972153, 0, 8, 0, 7.972153, 0, 0.66691124, 2.1473665, 2.62368, 2.0236974)
+
+[node name="Rock_3_D_Color1" parent="." unique_id=1586355228 instance=ExtResource("4_e5vxs")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -1.7768378, 3.3808708, 1.7083826)
+
+[node name="Rock_3_E_Color1" parent="." unique_id=1775848038 instance=ExtResource("5_e1dl6")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.1854854, 2.4345717, -1.5804362)
+
+[node name="Rock_3_F_Color1" parent="." unique_id=1208228913 instance=ExtResource("6_ghuu8")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.0165014, 3.2692957, -2.073917)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

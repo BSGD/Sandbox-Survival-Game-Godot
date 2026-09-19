@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fnqw33esi6po"]
+
+[ext_resource type="Script" path="res://Entities/Items/Test/test.gd" id="1_udcta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgso0"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="test" type="RigidBody3D"]
+script = ExtResource("1_udcta")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wgso0")
+
+[node name="Box" type="CSGBox3D" parent="."]
+size = Vector3(0.5, 0.5, 0.5)

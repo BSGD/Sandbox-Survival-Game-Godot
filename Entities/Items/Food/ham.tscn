@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dcx67c0fpdwbv"]
+
+[ext_resource type="Script" uid="uid://c5djymasj1vdg" path="res://Entities/Items/food.gd" id="1_3d35b"]
+[ext_resource type="PackedScene" uid="uid://yjxnok100c1e" path="res://Assets/food_ingredient_ham.fbx" id="1_inpww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Ham" type="RigidBody3D" unique_id=1178402190]
+script = ExtResource("1_3d35b")
+item_name = "Ham"
+has_use = true
+
+[node name="food_ingredient_ham" parent="." unique_id=1276967971 instance=ExtResource("1_inpww")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1122058146]
+shape = SubResource("BoxShape3D_ai5bk")

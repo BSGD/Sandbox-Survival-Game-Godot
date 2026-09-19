@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://j32onqcojc85"]
+
+[ext_resource type="Script" uid="uid://c5djymasj1vdg" path="res://Entities/Items/food.gd" id="1_d20hr"]
+[ext_resource type="PackedScene" uid="uid://b0hwse18v14vk" path="res://Assets/food_ingredient_lettuce.fbx" id="2_un506"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(0.8, 0.6, 0.8)
+
+[node name="Lettuce" type="RigidBody3D" unique_id=1178402190]
+script = ExtResource("1_d20hr")
+item_name = "Lettuce"
+has_use = true
+heal_amount = 40.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1122058146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_ai5bk")
+
+[node name="food_ingredient_lettuce" parent="." unique_id=1039235360 instance=ExtResource("2_un506")]

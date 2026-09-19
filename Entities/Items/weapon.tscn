@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://weapon12345"]
+
+[ext_resource type="Script" uid="uid://dtl8fugo276f8" path="res://Entities/Items/weapon.gd" id="1_2i8c6"]
+[ext_resource type="PackedScene" uid="uid://q2hjgv2vpdku" path="res://Assets/Tools/axe.fbx" id="2_yq3xk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_weapon"]
+size = Vector3(0.5, 1.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(0.3, 0.5, 0.5)
+
+[node name="Weapon" type="RigidBody3D" unique_id=1442171282]
+script = ExtResource("1_2i8c6")
+weapon_name = "Axe"
+item_name = "Axe"
+has_use = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=878759870]
+transform = Transform3D(1, 0, 0, 0, 0.9999959, -0.0028699923, 0, 0.0028699923, 0.9999959, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_weapon")
+
+[node name="axe" parent="." unique_id=601067970 instance=ExtResource("2_yq3xk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="AttackHitboxArea" type="Area3D" parent="." unique_id=65510840]
+
+[node name="AttackHitbox" type="CollisionShape3D" parent="AttackHitboxArea" unique_id=1861451373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.2)
+shape = SubResource("BoxShape3D_ai5bk")

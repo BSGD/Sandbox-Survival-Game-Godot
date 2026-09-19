@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dbpitem01"]
+
+[ext_resource type="Script" uid="uid://mpw04shpaw6" path="res://Entities/Items/blueprint_item.gd" id="1_item"]
+[ext_resource type="PackedScene" uid="uid://dlnaxrrxx8x2n" path="res://Assets/Structures/blueprint.fbx" id="2_mesh"]
+[ext_resource type="PackedScene" uid="uid://dblueprint01" path="res://Entities/Static/StructurePlacement/blueprint.tscn" id="3_bp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_item"]
+size = Vector3(1.6, 0.15, 1.6)
+
+[node name="BlueprintItem" type="RigidBody3D"]
+script = ExtResource("1_item")
+item_name = "Blueprint"
+blueprint_scene = ExtResource("3_bp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_item")
+
+[node name="blueprint" parent="." instance=ExtResource("2_mesh")]
+scale = Vector3(0.8, 0.8, 0.8)

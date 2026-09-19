@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bi6x7unbbxth2"]
+
+[ext_resource type="Script" uid="uid://c5djymasj1vdg" path="res://Entities/Items/food.gd" id="1_d4mxo"]
+[ext_resource type="PackedScene" uid="uid://cegm1rao7uxjw" path="res://Assets/food_burger.fbx" id="2_d4mxo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(0.8, 0.5, 0.8)
+
+[node name="Burger" type="RigidBody3D" unique_id=1178402190]
+script = ExtResource("1_d4mxo")
+item_name = "Burger"
+has_use = true
+heal_amount = 40.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1122058146]
+shape = SubResource("BoxShape3D_ai5bk")
+
+[node name="food_burger" parent="." unique_id=1795079751 instance=ExtResource("2_d4mxo")]

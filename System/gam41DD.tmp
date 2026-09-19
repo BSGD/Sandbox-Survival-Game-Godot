@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbb86161r06pu"]
+
+[ext_resource type="Texture2D" uid="uid://bokfpbk3trh2x" path="res://Assets/baseplate.png" id="1_60anv"]
+[ext_resource type="PackedScene" uid="uid://4lal0ebmn7xn" path="res://Scenes/player.tscn" id="2_nhfnx"]
+[ext_resource type="Script" path="res://Scripts/item_holder.gd" id="4_07b1n"]
+[ext_resource type="PackedScene" uid="uid://bxnhy737vinac" path="res://Scenes/camera.tscn" id="4_bfkdj"]
+[ext_resource type="PackedScene" uid="uid://tld1g42faygn" path="res://Scenes/itemprompt.tscn" id="5_5n0nr"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_skr7w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihsxe"]
+albedo_texture = ExtResource("1_60anv")
+uv1_scale = Vector3(1000, 1000, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uv2fc"]
+lightmap_size_hint = Vector2i(50002, 50002)
+material = SubResource("StandardMaterial3D_ihsxe")
+size = Vector2(10000, 10000)
+
+[sub_resource type="Environment" id="Environment_lfuhf"]
+background_mode = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.53
+
+[node name="Game" type="Node3D"]
+
+[node name="Baseplate" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Baseplate"]
+shape = SubResource("WorldBoundaryShape3D_skr7w")
+
+[node name="Plate" type="MeshInstance3D" parent="Baseplate"]
+mesh = SubResource("PlaneMesh_uv2fc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lfuhf")
+
+[node name="Player" parent="." instance=ExtResource("2_nhfnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.4192, 0)
+
+[node name="ItemHolder" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986401, -0.226284, -0.543287)
+script = ExtResource("4_07b1n")
+
+[node name="Camera" parent="Player" instance=ExtResource("4_bfkdj")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_5n0nr")]
