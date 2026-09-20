@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7w1el71n6ukq" path="res://Entities/Static/StructurePlacement/blueprint.gd" id="1_bp"]
 [ext_resource type="PackedScene" uid="uid://dlnaxrrxx8x2n" path="res://Assets/Structures/blueprint.fbx" id="2_mesh"]
-[ext_resource type="Script" uid="uid://nodqkrkbmu2y" path="res://Entities/Static/StructurePlacement/structure_data.gd" id="2_y7wwi"]
+[ext_resource type="Script" uid="uid://nodqkrkbmu2y" path="res://System/Construction/structure_data.gd" id="2_y7wwi"]
 [ext_resource type="Resource" uid="uid://banvildata01" path="res://Entities/Static/Workstations/Anvil.tres" id="3_anvil"]
 [ext_resource type="Resource" uid="uid://5t8akfdhrk6g" path="res://Entities/Static/Workstations/Grindstone.tres" id="4_grindstone"]
 

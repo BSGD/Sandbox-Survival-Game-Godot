@@ -28,11 +28,22 @@ func overlaps(at_transform: Transform3D, size: Vector2) -> bool:
 func interact(holder: Node3D) -> void:
 	if built or available_structures.is_empty():
 		return
-	var menu := get_tree().root.get_node("StructureMenuUI")
-	menu.open(self, holder as ItemHolder)
+	var menu := get_tree().root.get_node("RecipeMenu")
+	#menu.open(self, holder as ItemHolder)
+	menu.open(
+		available_structures,
+		holder as ItemHolder,
+		func(recipe: RecipeData) -> bool:
+			var structure_data := recipe as StructureData
+			if not structure_data:
+				return false
+
+			return build(structure_data, holder),
+		"Build Structure"
+	)
 
 func build(structure_data: StructureData, holder: ItemHolder) -> bool:
-	if built or not structure_data or not structure_data.structure_scene:
+	if built or not structure_data or not structure_data.output_scene:
 		return false
 
 	if not structure_data.cost.is_empty():
@@ -49,7 +60,7 @@ func build(structure_data: StructureData, holder: ItemHolder) -> bool:
 	structure.global_transform = global_transform
 	structure.global_position.y += structure_data.y_offset
 
-	var mesh_instance: Node3D = structure_data.structure_scene.instantiate()
+	var mesh_instance: Node3D = structure_data.output_scene.instantiate()
 	structure.add_child(mesh_instance)
 	mesh_instance.scale = structure_data.mesh_scale
 

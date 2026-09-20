@@ -22,7 +22,7 @@ config/icon="uid://cf8dg115okcyy"
 
 [autoload]
 
-StructureMenuUI="*res://System/Inventory/structure_menu_ui.tscn"
+RecipeMenu="*res://System/Inventory/recipe_menu.tscn"
 
 [display]
 

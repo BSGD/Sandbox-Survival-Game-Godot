@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="StructureData" load_steps=3 format=3 uid="uid://bgrindstonedata01"]
+[gd_resource type="Resource" script_class="StructureData" format=3 uid="uid://5t8akfdhrk6g"]
 
-[ext_resource type="Script" path="res://Entities/Static/StructurePlacement/structure_data.gd" id="1_data"]
-[ext_resource type="PackedScene" path="res://Assets/Structures/grindstone.fbx" id="2_mesh"]
+[ext_resource type="Script" uid="uid://nodqkrkbmu2y" path="res://System/Construction/structure_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://cfjmidbmmxl08" path="res://Entities/Static/StructurePlacement/item_cost.gd" id="1_uwa6c"]
+[ext_resource type="PackedScene" uid="uid://dh8td2grdrmug" path="res://Assets/Structures/grindstone.fbx" id="2_uwa6c"]
 
 [resource]
 script = ExtResource("1_data")
-display_name = "Grindstone"
-structure_scene = ExtResource("2_mesh")
 mesh_scale = Vector3(2, 2, 2)
-y_offset = 0.0
-collision_half_extents = Vector3(0.8, 1.0, 0.8)
-metadata/_custom_type_script = "res://Entities/Static/StructurePlacement/structure_data.gd"
+collision_half_extents = Vector3(1.5, 1, 1.9)
+display_name = "Grindstone"
+output_scene = ExtResource("2_uwa6c")

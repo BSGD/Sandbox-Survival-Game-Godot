@@ -212,8 +212,8 @@ func update_ui():
 # ------------ PROCESS LOOP ------------
 
 func _process(delta):
-	var structure_menu = get_tree().root.get_node("StructureMenuUI")
-	if structure_menu and structure_menu.visible:
+	var recipe_menu = get_tree().root.get_node("RecipeMenu")
+	if recipe_menu and recipe_menu.visible:
 		return
 
 	if _is_holding_blueprint_item():
@@ -226,7 +226,7 @@ func _process(delta):
 		update_ui()
 
 	# PICKUP / INTERACT (E while placing a blueprint is handled above instead)
-	if Input.is_action_just_pressed("grab") and not _is_holding_blueprint_item(): # E
+	if Input.is_action_just_pressed("grab") and not _is_holding_blueprint_item(): 
 		if held_item and held_item.has_use:
 			use_item()
 		else:

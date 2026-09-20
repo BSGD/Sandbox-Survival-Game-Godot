@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dj2kea8w1pw25"]
+
+[ext_resource type="Theme" uid="uid://bf25ky8q3v8uc" path="res://System/Styling/mainuitheme.tres" id="1_mb5ra"]
+[ext_resource type="Script" uid="uid://csdbber4g1mfc" path="res://System/Inventory/recipe_menu.gd" id="2_recipe"]
+
+[node name="RecipeMenu" type="Control" unique_id=1657865957]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -160.0
+offset_right = 140.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mb5ra")
+script = ExtResource("2_recipe")
+
+[node name="Panel" type="Panel" parent="." unique_id=1380204291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1957202819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="OuterVBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=52070214]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/OuterVBox" unique_id=1127286000]
+layout_mode = 2
+text = "Build "
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/OuterVBox" unique_id=16481323]
+layout_mode = 2
+theme_override_constants/separation = 8

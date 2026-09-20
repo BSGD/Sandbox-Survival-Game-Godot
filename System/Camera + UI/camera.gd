@@ -32,7 +32,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	from_camera.add_exception(player)
 
-## Called by UI (e.g. StructureMenuUI) that needs the mouse visible
+## Called by UI (e.g. SRecipeMenu) that needs the mouse visible
 func release_for_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -69,8 +69,8 @@ func _physics_process(delta):
 func _input(event):
 	# Ignore camera input entirely while a UI (e.g. the structure build
 	# menu) has taken the mouse 
-	var structure_menu := get_tree().root.get_node_or_null("StructureMenuUI")
-	if structure_menu and structure_menu.visible:
+	var recipe_menu := get_tree().root.get_node_or_null("RecipeMenu")
+	if recipe_menu and recipe_menu.visible:
 		return
 
 	# toggle camera mode
