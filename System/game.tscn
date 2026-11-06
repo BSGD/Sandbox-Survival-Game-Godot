@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dcx67c0fpdwbv" path="res://Entities/Items/Food/ham.tscn" id="12_qhut8"]
 [ext_resource type="PackedScene" uid="uid://dl27ddwmvxnhr" path="res://Static/lavapool.tscn" id="13_mrspy"]
 [ext_resource type="PackedScene" uid="uid://bm6hi0w1kjnmo" path="res://Static/movingplatform.tscn" id="13_p6o0d"]
-[ext_resource type="PackedScene" uid="uid://weapon12345" path="res://Entities/Items/weapon.tscn" id="14_sn4t7"]
+[ext_resource type="PackedScene" uid="uid://weapon12345" path="res://Entities/Items/Axe.tscn" id="14_sn4t7"]
 [ext_resource type="PackedScene" uid="uid://dbqkrm7m8hbps" path="res://Entities/Items/Resources/gold.tscn" id="20_dohvh"]
 [ext_resource type="PackedScene" uid="uid://b28s5pwbopplq" path="res://Assets/Structures/table_medium.fbx" id="25_qhut8"]
 [ext_resource type="PackedScene" uid="uid://j32onqcojc85" path="res://Entities/Items/Food/lettuce.tscn" id="26_shayi"]
@@ -119,6 +119,7 @@ size = Vector3(2.1, 0.5, 2.1)
 shape = SubResource("WorldBoundaryShape3D_skr7w")
 
 [node name="Plate" type="MeshInstance3D" parent="Baseplate" unique_id=565198385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019979477, -0.0063966513, -0.001513958)
 mesh = SubResource("PlaneMesh_uv2fc")
 
 [node name="Block" parent="Baseplate" unique_id=1930223741 instance=ExtResource("2_6cn8s")]
@@ -133,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1977959, -0.37921333, -6.38
 [node name="Item" parent="Baseplate" unique_id=1245826011 instance=ExtResource("3_kbtla")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67911816, 2.9057267e-08, -19.315403)
 
-[node name="Weapon" parent="Baseplate" unique_id=1442171282 instance=ExtResource("14_sn4t7")]
+[node name="Axe" parent="Baseplate" unique_id=1442171282 instance=ExtResource("14_sn4t7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.330967, 0.28473008, -5.9746904)
 
 [node name="lava" parent="Baseplate" unique_id=1953218144 instance=ExtResource("13_mrspy")]
