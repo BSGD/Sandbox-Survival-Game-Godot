@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uexu"]
 size = Vector3(0.8, 1.4, 0.8)
 
-[node name="Chicken" type="CharacterBody3D" unique_id=258977593]
+[node name="Chicken" type="CharacterBody3D" unique_id=258977593 groups=["PassiveMobs"]]
 script = ExtResource("1_3f6lr")
 attack_damage = 0.0
 

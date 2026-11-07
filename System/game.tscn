@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dcx67c0fpdwbv" path="res://Entities/Items/Food/ham.tscn" id="12_qhut8"]
 [ext_resource type="PackedScene" uid="uid://dl27ddwmvxnhr" path="res://Static/lavapool.tscn" id="13_mrspy"]
 [ext_resource type="PackedScene" uid="uid://bm6hi0w1kjnmo" path="res://Static/movingplatform.tscn" id="13_p6o0d"]
+[ext_resource type="Script" uid="uid://dhsdihu7sdjgd" path="res://System/chicken_spawner.gd" id="14_28reu"]
 [ext_resource type="PackedScene" uid="uid://weapon12345" path="res://Entities/Items/weapon.tscn" id="14_sn4t7"]
 [ext_resource type="PackedScene" uid="uid://dbqkrm7m8hbps" path="res://Entities/Items/Resources/gold.tscn" id="20_dohvh"]
 [ext_resource type="PackedScene" uid="uid://b28s5pwbopplq" path="res://Assets/Structures/table_medium.fbx" id="25_qhut8"]
@@ -103,13 +104,13 @@ mesh_scene = SubResource("PackedScene_a0tds")
 log_scene = ExtResource("7_xo0fs")
 metadata/_custom_type_script = "uid://b81n01g1ldnkj"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
+size = Vector3(2.1, 0.5, 2.1)
+
 [sub_resource type="Environment" id="Environment_lfuhf"]
 background_mode = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 1.53
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ai5bk"]
-size = Vector3(2.1, 0.5, 2.1)
 
 [node name="Game" type="Node3D" unique_id=593903704]
 
@@ -152,24 +153,104 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.562632, 0, -12.105726)
 [node name="ChoppableTree4" parent="Baseplate" unique_id=120630978 instance=ExtResource("6_qrhw7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.46442, 0, -43.97487)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1629585373]
-environment = SubResource("Environment_lfuhf")
-
-[node name="Player" parent="." unique_id=1592231992 instance=ExtResource("2_nhfnx")]
+[node name="Player" parent="Baseplate" unique_id=1592231992 instance=ExtResource("2_nhfnx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.4192, 0)
 
-[node name="ItemHolder" type="Node3D" parent="Player" unique_id=509297834]
+[node name="ItemHolder" type="Node3D" parent="Baseplate/Player" unique_id=509297834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.462331, 0.274269, -0.808304)
 script = ExtResource("4_07b1n")
 blueprint_ghost_scene = ExtResource("9_bpghost")
 
-[node name="Camera" parent="Player" unique_id=1985386440 instance=ExtResource("4_bfkdj")]
+[node name="Camera" parent="Baseplate/Player" unique_id=1985386440 instance=ExtResource("4_bfkdj")]
 
-[node name="test" parent="." unique_id=378487080 instance=ExtResource("7_ecens")]
+[node name="ChickenSpawner" type="Node3D" parent="Baseplate/Player" unique_id=1082909391]
+script = ExtResource("14_28reu")
+chicken_scene = ExtResource("10_6ilmr")
+
+[node name="SpawnTimer" type="Timer" parent="Baseplate/Player/ChickenSpawner" unique_id=1654244824]
+process_callback = 0
+wait_time = 50.0
+autostart = true
+
+[node name="test" parent="Baseplate" unique_id=378487080 instance=ExtResource("7_ecens")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.763191, 1.67865, 0)
 
-[node name="BlueprintItem" parent="." unique_id=2050444990 instance=ExtResource("9_bpitem")]
+[node name="BlueprintItem" parent="Baseplate" unique_id=2050444990 instance=ExtResource("9_bpitem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 26, 0)
+
+[node name="NuggetSpawner" parent="Baseplate" unique_id=2002598024 instance=ExtResource("11_nuggetspawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.146, 0.5, 6.577)
+
+[node name="Block2" parent="Baseplate" unique_id=1288183042 instance=ExtResource("2_6cn8s")]
+transform = Transform3D(5, 0, 0, 0, 1.3566836, 0, 0, 0, 5, 4.4313674, 4.5175805, -32.64831)
+
+[node name="Block3" parent="Baseplate" unique_id=1822435923 instance=ExtResource("2_6cn8s")]
+transform = Transform3D(5, 0, 0, 0, 1.3566836, 0, 0, 0, 5, 4.4313674, 4.5175805, -60.763332)
+
+[node name="Platform" parent="Baseplate" unique_id=194889434 instance=ExtResource("13_p6o0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3653965, 4.6220984, -57.663197)
+point_a = Vector3(4.365, 4.622, -35.7)
+point_b = Vector3(4.365, 4.622, -57.5)
+
+[node name="Weapon2" parent="Baseplate" unique_id=574734091 instance=ExtResource("14_sn4t7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5361812, 0.25, -46.634407)
+
+[node name="Copper" parent="Baseplate" unique_id=861464501 instance=ExtResource("3_kbtla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.468555, 2.9057267e-08, -17.499468)
+
+[node name="Gold" parent="Baseplate" unique_id=1212358108 instance=ExtResource("20_dohvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.958977, 2.9057267e-08, -17.499416)
+
+[node name="Iron" parent="Baseplate" unique_id=1308940960 instance=ExtResource("7_dlsqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.422344, 2.9057267e-08, -17.50689)
+
+[node name="Silver" parent="Baseplate" unique_id=58672897 instance=ExtResource("10_qrhw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.85962, 2.9057267e-08, -17.499876)
+
+[node name="table" type="StaticBody3D" parent="Baseplate" unique_id=926099754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.198, 0.059179425, 0)
+
+[node name="Burger" parent="Baseplate/table" unique_id=1178402190 instance=ExtResource("11_xo0fs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4268856, 1.0000001, -0.44608736)
+
+[node name="Ham" parent="Baseplate/table" unique_id=874443605 instance=ExtResource("12_qhut8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5792227, 1.4146315, -0.2809571)
+
+[node name="table_medium" parent="Baseplate/table" unique_id=64907011 instance=ExtResource("25_qhut8")]
+
+[node name="Lettuce" parent="Baseplate/table" unique_id=444690971 instance=ExtResource("26_shayi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4198084, 1.0101691, 0.6018996)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Baseplate/table" unique_id=364642469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_ai5bk")
+
+[node name="Blueprint" parent="Baseplate" unique_id=993392745 instance=ExtResource("27_a0tds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.973875, 8.6927045e-08, -12.243791)
+
+[node name="Chicken" parent="Baseplate" unique_id=258977593 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.897259, 0.45748404, -141.39688)
+
+[node name="Chicken2" parent="Baseplate" unique_id=1001736018 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.97328, 0.45748404, 0.8033943)
+
+[node name="Chicken3" parent="Baseplate" unique_id=27248882 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.856503, 0.45748404, 47.496483)
+
+[node name="Chicken4" parent="Baseplate" unique_id=2062576718 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.01585, 0.45748404, 45.854385)
+
+[node name="Chicken5" parent="Baseplate" unique_id=346812690 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.459614, 0.45748404, 3.6320667)
+
+[node name="Chicken6" parent="Baseplate" unique_id=181432078 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.93982, 0.45748404, 1.7415161)
+
+[node name="Chicken7" parent="Baseplate" unique_id=1660977432 instance=ExtResource("10_6ilmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.9225, 0.45748404, 0.78658295)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1629585373]
+environment = SubResource("Environment_lfuhf")
 
 [node name="ItemInteractUI" type="Label3D" parent="." unique_id=37217499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0192, 0)
@@ -210,75 +291,5 @@ allow_greater = true
 allow_lesser = true
 script = ExtResource("9_o73le")
 
-[node name="NuggetSpawner" parent="." unique_id=2002598024 instance=ExtResource("11_nuggetspawn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.146, 0.5, 6.577)
-
-[node name="Block" parent="." unique_id=1288183042 instance=ExtResource("2_6cn8s")]
-transform = Transform3D(5, 0, 0, 0, 1.3566836, 0, 0, 0, 5, 4.4313674, 4.5175805, -32.64831)
-
-[node name="Block2" parent="." unique_id=1822435923 instance=ExtResource("2_6cn8s")]
-transform = Transform3D(5, 0, 0, 0, 1.3566836, 0, 0, 0, 5, 4.4313674, 4.5175805, -60.763332)
-
-[node name="Platform" parent="." unique_id=194889434 instance=ExtResource("13_p6o0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3653965, 4.6220984, -57.663197)
-point_a = Vector3(4.365, 4.622, -35.7)
-point_b = Vector3(4.365, 4.622, -57.5)
-
-[node name="Weapon" parent="." unique_id=574734091 instance=ExtResource("14_sn4t7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5361812, 0.25, -46.634407)
-
-[node name="Copper" parent="." unique_id=861464501 instance=ExtResource("3_kbtla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.468555, 2.9057267e-08, -17.499468)
-
-[node name="Gold" parent="." unique_id=1212358108 instance=ExtResource("20_dohvh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.958977, 2.9057267e-08, -17.499416)
-
-[node name="Iron" parent="." unique_id=1308940960 instance=ExtResource("7_dlsqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.422344, 2.9057267e-08, -17.50689)
-
-[node name="Silver" parent="." unique_id=58672897 instance=ExtResource("10_qrhw7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.85962, 2.9057267e-08, -17.499876)
-
-[node name="table" type="StaticBody3D" parent="." unique_id=926099754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.198, 0.059179425, 0)
-
-[node name="Burger" parent="table" unique_id=1178402190 instance=ExtResource("11_xo0fs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4268856, 1.0000001, -0.44608736)
-
-[node name="Ham" parent="table" unique_id=874443605 instance=ExtResource("12_qhut8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5792227, 1.4146315, -0.2809571)
-
-[node name="table_medium" parent="table" unique_id=64907011 instance=ExtResource("25_qhut8")]
-
-[node name="Lettuce" parent="table" unique_id=444690971 instance=ExtResource("26_shayi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4198084, 1.0101691, 0.6018996)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="table" unique_id=364642469]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_ai5bk")
-
-[node name="Blueprint" parent="." unique_id=993392745 instance=ExtResource("27_a0tds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.973875, 8.6927045e-08, -12.243791)
-
-[node name="Chicken" parent="." unique_id=258977593 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.897259, 0.45748404, -141.39688)
-
-[node name="Chicken2" parent="." unique_id=1001736018 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.97328, 0.45748404, 0.8033943)
-
-[node name="Chicken3" parent="." unique_id=27248882 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.856503, 0.45748404, 47.496483)
-
-[node name="Chicken4" parent="." unique_id=2062576718 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.01585, 0.45748404, 45.854385)
-
-[node name="Chicken5" parent="." unique_id=346812690 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.459614, 0.45748404, 3.6320667)
-
-[node name="Chicken6" parent="." unique_id=181432078 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.93982, 0.45748404, 1.7415161)
-
-[node name="Chicken7" parent="." unique_id=1660977432 instance=ExtResource("10_6ilmr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.9225, 0.45748404, 0.78658295)
-
-[connection signal="health_changed" from="Player" to="UI/HPBar" method="_on_player_health_changed"]
+[connection signal="health_changed" from="Baseplate/Player" to="UI/HPBar" method="_on_player_health_changed"]
+[connection signal="timeout" from="Baseplate/Player/ChickenSpawner/SpawnTimer" to="Baseplate/Player/ChickenSpawner" method="_on_spawn_timer_timeout"]
