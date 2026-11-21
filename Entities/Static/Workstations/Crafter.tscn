@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b60wubar2j7xp"]
+
+[ext_resource type="Script" uid="uid://cqwo25fib874w" path="res://Entities/Static/Workstations/crafter.gd" id="1_h006e"]
+[ext_resource type="PackedScene" uid="uid://b852d1cgex2hc" path="res://Assets/Structures/crafting-table-workbench.glb" id="1_l04je"]
+
+[node name="Crafter" type="StaticBody3D" unique_id=2051845510]
+script = ExtResource("1_h006e")
+
+[node name="AuxScene" parent="." unique_id=346924133 instance=ExtResource("1_l04je")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

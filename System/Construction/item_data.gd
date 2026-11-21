@@ -1,0 +1,2 @@
+extends RecipeData
+class_name ItemData
