@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cqwo25fib874w" path="res://Entities/Static/Workstations/crafter.gd" id="1_h006e"]
 [ext_resource type="PackedScene" uid="uid://b852d1cgex2hc" path="res://Assets/Structures/crafting-table-workbench.glb" id="1_l04je"]
+[ext_resource type="Script" uid="uid://cqa608nbbkpw3" path="res://System/Construction/item_data.gd" id="2_urnp0"]
+[ext_resource type="Resource" uid="uid://dtsem4mhqtull" path="res://Entities/Items/axe_recipe.tres" id="3_n4knn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_urnp0"]
+size = Vector3(0.8, 0.4, 0.05)
 
 [node name="Crafter" type="StaticBody3D" unique_id=2051845510]
 script = ExtResource("1_h006e")
+available_crafting_recipies = Array[ExtResource("2_urnp0")]([ExtResource("3_n4knn")])
 
 [node name="AuxScene" parent="." unique_id=346924133 instance=ExtResource("1_l04je")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1909411327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573864, 0.9888048, -0.3943826)
+shape = SubResource("BoxShape3D_urnp0")
