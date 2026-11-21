@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dl27ddwmvxnhr" path="res://Static/lavapool.tscn" id="13_mrspy"]
 [ext_resource type="PackedScene" uid="uid://bm6hi0w1kjnmo" path="res://Static/movingplatform.tscn" id="13_p6o0d"]
 [ext_resource type="Script" uid="uid://dhsdihu7sdjgd" path="res://System/chicken_spawner.gd" id="14_28reu"]
-[ext_resource type="PackedScene" uid="uid://weapon12345" path="res://Entities/Items/weapon.tscn" id="14_sn4t7"]
+[ext_resource type="PackedScene" uid="uid://weapon12345" path="res://Entities/Items/axe.tscn" id="14_sn4t7"]
 [ext_resource type="PackedScene" uid="uid://dbqkrm7m8hbps" path="res://Entities/Items/Resources/gold.tscn" id="20_dohvh"]
 [ext_resource type="PackedScene" uid="uid://b28s5pwbopplq" path="res://Assets/Structures/table_medium.fbx" id="25_qhut8"]
 [ext_resource type="PackedScene" uid="uid://j32onqcojc85" path="res://Entities/Items/Food/lettuce.tscn" id="26_shayi"]
